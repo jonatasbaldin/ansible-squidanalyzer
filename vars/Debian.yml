@@ -1,0 +1,6 @@
+---
+# if squidanalyzer_apache_install: True
+squidanalyzer_apache_package: apache2
+squidanalyzer_apache_service: apache2
+
+squidanalyzer_squid_logs: /var/log/squid3/access.log

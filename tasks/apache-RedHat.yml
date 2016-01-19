@@ -1,0 +1,7 @@
+---
+- name: Install Apache2
+  yum: name=httpd state=present update_cache=yes
+
+- name: Copy SquidAnalyzer site template
+  template: src=squidanalyzer.conf.j2 dest=/etc/httpd/conf.d/squidanalyzer.conf
+  notify: restart apache2

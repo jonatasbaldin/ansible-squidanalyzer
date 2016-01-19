@@ -1,0 +1,6 @@
+---
+# if squidanalyzer_apache_install: True
+squidanalyzer_apache_package: httpd
+squidanalyzer_apache_service: httpd
+
+squidanalyzer_squid_logs: /var/log/squid/access.log

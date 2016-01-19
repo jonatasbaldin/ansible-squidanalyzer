@@ -1,0 +1,25 @@
+---
+- name: Include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: OS-specifc tasks
+  include: "{{ ansible_os_family }}.yml"
+
+- name: Install Apache2
+  include: apache-{{ ansible_os_family }}.yml
+  when: squidanalyzer_apache_install
+
+- name: Download SquidAnalyzer
+  get_url: url=http://downloads.sourceforge.net/project/squid-report/squid-report/6.5/{{ squidanalyzer_package }}.tar.gz dest=/usr/src/
+
+- name: Extract SquidAnalyzer
+  unarchive: src=/usr/src/{{ squidanalyzer_package }}.tar.gz dest=/usr/src copy=no
+
+- name: Install SquidAnalyzer
+  shell: perl Makefile.PL && make && make install 
+  args:
+    chdir: /usr/src/{{ squidanalyzer_package }}
+
+- name: Install update's crontab entry
+  cron: name='SquidAnalyzer Update' minute='*/5' state=present
+    job='/usr/local/bin/squid-analyzer {{ squidanalyzer_squid_logs }} > /dev/null 2>&1'

@@ -1,0 +1,25 @@
+galaxy_info:
+  author: Jonatas Baldin
+  description: SquidAnalyzer (reports for squid-proxy) for RedHat/CentOS/Debian/Ubuntu
+  company: deployeveryday.com
+  
+  license: MIT
+  
+  min_ansible_version: 1.8
+
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  
+  galaxy_tags:
+    - system
+    - proxy
+
+dependencies: []

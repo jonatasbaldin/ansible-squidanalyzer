@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    #- jonatasbaldin.squid3 # Uncomment to test with squid
+    - jonatasbaldin.squidanalyzer

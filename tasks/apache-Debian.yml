@@ -1,0 +1,10 @@
+---
+- name: Install Apache2
+  apt: name=apache2 state=present update_cache=yes
+
+- name: Copy SquidAnalyzer site template
+  template: src=squidanalyzer.conf.j2 dest=/etc/apache2/sites-available/squidanalyzer.conf
+  notify: restart apache2
+
+- name: Create link to sites-enabled
+  file: src=/etc/apache2/sites-available/squidanalyzer.conf dest=/etc/apache2/sites-enabled/squidanalyzer.conf state=link

@@ -1,0 +1,3 @@
+---
+- name: Install CPAN
+  yum: name=perl-CPAN state=present update_cache=yes
