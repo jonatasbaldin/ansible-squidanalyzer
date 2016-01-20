@@ -1,5 +1,5 @@
 ---
-squidanalyzer_apache_install: False
+squidanalyzer_apache_install: True
 
-squidanalyzer_web: /var/www/html
+squidanalyzer_web: /var/www/squidanalyzer
 squidanalyzer_package: squidanalyzer-6.5
